@@ -33,7 +33,7 @@ function esc(s){return (s||"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">
 function render(){
  const term=q.value.trim().toLowerCase();
  const rows=LIBRARY_DATA.filter(b=>{
-   const cat=active==="All" || (active==="Wishlist"?b.wishlist:b.tags.includes(active));
+   const cat=active==="All" ? !b.wishlist : (active==="Wishlist" ? b.wishlist : (!b.wishlist && b.tags.includes(active)));
    const hay=[b.title,b.author,b.owner,b.description,...b.tags].join(" ").toLowerCase();
    return cat && (!term || hay.includes(term));
  });
