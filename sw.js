@@ -1,4 +1,4 @@
-const C='aquarium-library-v2';const A=['./','./index.html','./library-data.js','./manifest.webmanifest'];
-self.addEventListener('install',e=>{self.skipWaiting();e.waitUntil(caches.open(C).then(c=>c.addAll(A)))});
-self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k!==C).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));
-self.addEventListener('fetch',e=>e.respondWith(caches.match(e.request,{cacheName:C}).then(r=>r||fetch(e.request))));
+const C="aquarium-library-v3-az";const A=["./","./index.html","./library-data.js","./manifest.webmanifest"];
+self.addEventListener("install",e=>{self.skipWaiting();e.waitUntil(caches.open(C).then(c=>c.addAll(A)))});
+self.addEventListener("activate",e=>e.waitUntil((async()=>{for(const k of await caches.keys())if(k.startsWith("aquarium-library-")&&k!==C)await caches.delete(k);await self.clients.claim()})()));
+self.addEventListener("fetch",e=>{const req=e.request;if(req.method!=="GET")return;const u=new URL(req.url);if(u.origin!==self.location.origin||!u.pathname.startsWith(self.registration.scope.replace(u.origin,"")))return;e.respondWith((async()=>{const cache=await caches.open(C);const key=req.mode==="navigate"&&u.pathname.endsWith("/")?new URL("index.html",u.href).href:req.url;try{const res=await fetch(req,{cache:"no-store"});if(res.ok){e.waitUntil(cache.put(key,res.clone()));return res}}catch(_){}return await cache.match(key,{ignoreSearch:true})||Response.error()})())});
