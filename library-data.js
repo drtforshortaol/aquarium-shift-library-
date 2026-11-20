@@ -234,6 +234,17 @@ window.LIBRARY_DATA = [
     ]
   },
   {
+    "title": "Pacific Seaweeds",
+    "author": "L. Druehl & B. Clarkston",
+    "owner": "MJ",
+    "description": "Guide to life cycle & identification of Pacific macroalgae & their roles in ecosystems as well as human economies",
+    "borrowed": "On loan outside of shift",
+    "wishlist": false,
+    "tags": [
+      "Kelp & Seaweed"
+    ]
+  },
+  {
     "title": "Gulls Simplified",
     "author": "P. Dunne & K. T. Karlson",
     "owner": "MJ",
@@ -397,6 +408,18 @@ window.LIBRARY_DATA = [
     "title": "The Curious World of Seaweed",
     "author": "J. Iselin",
     "owner": "Marilyn",
+    "description": "A guide about various kinds of seaweeds, their adaptations & ecology, & relationship with humans",
+    "borrowed": "",
+    "wishlist": false,
+    "tags": [
+      "Kelp & Seaweed",
+      "Evolution & Adaptations"
+    ]
+  },
+  {
+    "title": "The Curious World of Seaweed",
+    "author": "J. Iselin",
+    "owner": "MJ",
     "description": "A guide about various kinds of seaweeds, their adaptations & ecology, & relationship with humans",
     "borrowed": "",
     "wishlist": false,
@@ -600,7 +623,7 @@ window.LIBRARY_DATA = [
     "author": "S. R. Palumbi & C. Sotka",
     "owner": "MJ",
     "description": "A story about the natural & human history of Monterey & the actions taken to protect & recover it",
-    "borrowed": "",
+    "borrowed": "Nelly",
     "wishlist": false,
     "tags": [
       "Monterey Bay",
